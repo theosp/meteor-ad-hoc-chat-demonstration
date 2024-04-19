@@ -1,0 +1,27 @@
+<template name="chat_room_layout">
+    <section class="chat-room-section">
+        <div class="row">
+            <div class="main-col col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="chat-box-inner-layout">
+                                    {{#if currentUser}}
+                                        {{#if isKnownRoom}}
+                                            {{> chat_room}}
+                                        {{else}}
+                                            {{> chat_room_setup}}
+                                        {{/if}}
+                                    {{else}}
+                                        {{> chat_room_logged_out}}
+                                    {{/if}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>

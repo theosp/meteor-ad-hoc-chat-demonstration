@@ -1,0 +1,39 @@
+<template name="chat_room">
+    <div class="messages">
+        <div class="d-flex flex-row justify-content-start">
+            <div>
+                <p class="message message-from-other small p-2 ms-3 mb-1 rounded-3">
+                    Lorem ipsum
+                    dolor
+                    sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et
+                    dolore
+                    magna aliqua.</p>
+                <p class="small ms-3 mb-3 rounded-3 text-muted float-end">Daniel Chcouri | 12:00 PM | Aug 13</p>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row justify-content-end">
+            <div>
+                <p class="message small p-2 me-3 mb-1 text-white rounded-3 bg-primary">Ut enim
+                    ad minim veniam,
+                    quis
+                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.</p>
+                <p class="small me-3 mb-3 rounded-3 text-muted">Daniel Chcouri | 12:00 PM | Aug 13</p>
+            </div>
+        </div>
+    </div>
+    <div class="inputs-and-state">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Type a message...">
+            <button class="btn btn-primary" type="button">Send</button>
+        </div>
+
+        <div class="online-participants p-2">
+            <strong>Online now:</strong>
+            <span class="badge bg-primary">Daniel C</span>
+            <span class="badge bg-primary">Eli C</span>
+        </div>
+    </div>
+</template>

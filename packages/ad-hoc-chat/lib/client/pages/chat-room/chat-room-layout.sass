@@ -1,0 +1,40 @@
+$card_max_width: 850px
+
+.chat-room-section
+    background-color: #CDC4F9
+
+    flex-grow: 1
+    overflow-y: auto
+    overflow-x: hidden
+
+    height: 100%
+
+    .container
+        height: 100%
+
+    .row, .col
+        height: 100%
+
+    .main-col
+        display: flex
+        align-items: center
+        justify-content: center
+
+    .card
+        border-radius: 15px
+        height: 95%
+        max-width: $card_max_width
+        flex-grow: 1
+
+    .card-body
+        overflow: auto
+
+    .chat-box-inner-layout
+        display: flex
+        flex-direction: column
+        height: 100%
+
+@media (max-width: $card_max_width)
+    .chat-room-section
+        .card
+            max-width: 95%
