@@ -60,6 +60,7 @@ Package.onUse(function (api) {
   api.addFiles("lib/client/global-template-helpers.coffee", client);
   api.addFiles("lib/client/layout/layout.sass", client);
   api.addFiles("lib/client/layout/layout.html", client);
+  api.addFiles("lib/client/layout/layout.coffee", client);
 
   api.addFiles("lib/client/pages/chat-room/chat-room-layout.html", client);
   api.addFiles("lib/client/pages/chat-room/chat-room-layout.sass", client);
