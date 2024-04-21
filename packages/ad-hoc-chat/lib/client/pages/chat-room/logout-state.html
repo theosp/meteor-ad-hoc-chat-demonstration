@@ -3,8 +3,16 @@
         <h3>Join {{appName}}</h3>
         <p>Please choose a nickname to join the chat:</p>
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Choose a nickname...">
-            <button class="btn btn-primary" type="button">Join</button>
+            <input type="text" class="nickname form-control {{#if hasErrors}}is-invalid{{/if}}" placeholder="Choose a nickname...">
+            <button class="join btn btn-primary" type="button">Join</button>
         </div>
+
+        {{#if errors}}
+            <div class="alert alert-danger mt-3" role="alert">
+                {{#each errors}}
+                    <p class="mb-0">{{this}}</p>
+                {{/each}}
+            </div>
+        {{/if}}
     </div>
 </template>

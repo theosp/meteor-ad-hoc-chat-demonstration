@@ -3,9 +3,9 @@ _.extend AdHocChat.prototype,
     check nickname, String
 
     Meteor.call "createAccountFromNickname", nickname, (err, res) ->
-      if err
-        return cb err
-
-      return cb null, res
+      if _.isFunction cb
+        cb(err, res)
+        
+      return
     
     return

@@ -13,6 +13,7 @@ Package.onUse(function (api) {
   api.use("underscore", both);
   api.use("mongo", both);
   api.use("random", both);
+  api.use("check", both);
   api.use("jquery@3.0.0", both);
 
   api.use("meteorspark:app", both);
@@ -34,6 +35,10 @@ Package.onUse(function (api) {
 
   api.use("accounts-base", both);
   api.use("accounts-password", both);
+
+  api.use("daniel:bootstrap", client);
+
+  api.use("daniel:helpers", both);
 
   api.addFiles("lib/both/init.coffee", both);
   api.addFiles("lib/both/static.coffee", both);
@@ -72,8 +77,6 @@ Package.onUse(function (api) {
 
   api.addFiles("lib/client/pages/home-page/home-page.html", client);
   api.addFiles("lib/client/pages/home-page/home-page.coffee", client);
-
-  api.use("daniel:bootstrap", client);
 
   api.addFiles("lib/both/app-integration.coffee", both);
 
