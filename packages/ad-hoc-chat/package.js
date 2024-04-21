@@ -16,6 +16,8 @@ Package.onUse(function (api) {
   api.use("check", both);
   api.use("jquery@3.0.0", both);
 
+  api.use("accounts-base", both);
+
   api.use("meteorspark:app", both);
   api.use("meteorspark:util", both);
   
@@ -74,6 +76,10 @@ Package.onUse(function (api) {
   api.addFiles("lib/client/pages/chat-room/logout-state.html", client);
   api.addFiles("lib/client/pages/chat-room/logout-state.sass", client);
   api.addFiles("lib/client/pages/chat-room/logout-state.coffee", client);
+
+  api.addFiles("lib/client/pages/chat-room/login-state.html", client);
+  api.addFiles("lib/client/pages/chat-room/login-state.sass", client);
+  api.addFiles("lib/client/pages/chat-room/login-state.coffee", client);
 
   api.addFiles("lib/client/pages/home-page/home-page.html", client);
   api.addFiles("lib/client/pages/home-page/home-page.coffee", client);

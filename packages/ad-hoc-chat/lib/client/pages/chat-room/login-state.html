@@ -1,0 +1,7 @@
+<template name="chat_room_logged_in">
+    {{#if isKnownRoom}}
+        {{> chat_room}}
+    {{else}}
+        {{> chat_room_setup}}
+    {{/if}}
+</template>

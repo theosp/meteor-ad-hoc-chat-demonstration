@@ -19,11 +19,3 @@ _.extend AdHocChat.prototype,
     @_ensureIndexesExists()
 
     return
-
-  createAccountFromNickname: (nickname) ->
-    check nickname, String
-
-    if _.isEmpty(nickname) or nickname.length > AdHocChat.max_nickname_length
-      throw new Meteor.Error "invalid-nickname", "Nickname must be at least #{AdHocChat.max_nickname_length} characters long"
-
-    return
