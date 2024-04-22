@@ -1,4 +1,7 @@
 <template name="chat_room">
+    <!-- Show the room's title with a pencil next to it to allow editing it -->
+    <div class="room-title card-title d-flex flex-row justify-content-center fw-bold" contenteditable>{{roomTitle}}</div>
+
     <div class="messages">
         <div class="d-flex flex-row justify-content-start">
             <div>
