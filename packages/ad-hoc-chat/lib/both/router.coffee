@@ -1,5 +1,7 @@
 _.extend AdHocChat.prototype,
   setupRouter: ->
+    self = this
+
     Router.configure({
       layoutTemplate: 'application_layout'
     });
@@ -13,6 +15,9 @@ _.extend AdHocChat.prototype,
 
     Router.route "/:id", ->
       @render "chat_room_layout"
+
+      if Meteor.userId()?
+        self.subscribeChatRoom @params.id
 
       return
     ,

@@ -7,10 +7,14 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="chat-box-inner-layout">
-                                    {{#if currentUser}}
-                                        {{> chat_room_logged_in}}
+                                    {{#if loggingIn}}
+                                        {{> loading_spinner}}
                                     {{else}}
-                                        {{> chat_room_logged_out}}
+                                        {{#if currentUser}}
+                                            {{> chat_room_logged_in}}
+                                        {{else}}
+                                            {{> chat_room_logged_out}}
+                                        {{/if}}
                                     {{/if}}
                                 </div>
                             </div>
@@ -20,4 +24,10 @@
             </div>
         </div>
     </section>
+</template>
+
+<template name="loading_spinner">
+    <div class="spinner-container">
+        <div class="spinner-border" role="status"></div>
+    </div>
 </template>

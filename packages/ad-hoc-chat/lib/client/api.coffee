@@ -24,3 +24,20 @@ _.extend AdHocChat.prototype,
       }]
 
     return
+
+  subscribeChatRoom: (chat_room_id) ->
+    if not _.isString(chat_room_id) or _.isEmpty(chat_room_id)
+      throw new Meteor.Error "invalid-chat-room-id", "Chat room ID must be a non-empty string"
+
+      return
+
+    Meteor.subscribe "chat_room", chat_room_id
+
+    return
+
+  getCurrentRoomId: ->
+    return Router.current().params.id
+
+  getCurrentRoom: ->
+    return @chat_rooms_collection.findOne @getCurrentRoomId() 
+  

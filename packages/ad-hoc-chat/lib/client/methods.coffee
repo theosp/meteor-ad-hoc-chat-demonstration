@@ -1,1 +1,5 @@
-_.extend AdHocChat.prototype, {}
+_.extend AdHocChat.prototype,
+    setChatRoomTitle: (options, cb) ->
+        Meteor.call "setChatRoomTitle", options, cb
+        
+        return

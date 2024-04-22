@@ -2,8 +2,16 @@
     <div class="chat-room-setup mt-5 p-5">
         <h3>Choose a title for the chat room</h3>
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Room title...">
-            <button class="btn btn-primary" type="button">Join</button>
+            <input type="text" class="room-title form-control {{#if hasErrors}}is-invalid{{/if}}" placeholder="Room title...">
+            <button class="join btn btn-primary" type="button">Join</button>
         </div>
+
+        {{#if errors}}
+            <div class="alert alert-danger mt-3" role="alert">
+                {{#each errors}}
+                    <p class="mb-0">{{this}}</p>
+                {{/each}}
+            </div>
+        {{/if}}
     </div>
 </template>

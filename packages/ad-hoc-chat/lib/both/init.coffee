@@ -1,11 +1,12 @@
-AdHocChat = ->
+AdHocChat = (options) ->
   EventEmitter.call @
 
   @destroyed = false
 
   @_on_destroy_procedures = []
 
-  @_on_destroy_procedures = []
+  @chat_rooms_collection = options.chat_rooms_collection
+  @chat_messages_collection = options.chat_messages_collection
 
   @_attachCollectionsSchemas()
 

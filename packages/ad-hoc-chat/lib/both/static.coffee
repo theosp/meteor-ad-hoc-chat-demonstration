@@ -4,3 +4,5 @@ _.extend AdHocChat,
   random_chat_room_id_length: 80
 
   max_nickname_length: 50
+
+  max_room_title_length: 50
