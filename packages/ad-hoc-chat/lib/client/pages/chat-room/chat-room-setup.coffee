@@ -17,7 +17,7 @@ Template.chat_room_setup.onCreated ->
             @addError("Please enter a title that is less than #{AdHocChat.max_room_title_length} characters")
             return
 
-        APP.ad_hoc_chat.setChatRoomTitle {room_id: APP.ad_hoc_chat.getCurrentRoomId(), title: title}, (err, res) =>
+        APP.ad_hoc_chat.setChatRoomTitle {title: title}, (err, res) =>
             if err?
                 @addError(err)
                 return
