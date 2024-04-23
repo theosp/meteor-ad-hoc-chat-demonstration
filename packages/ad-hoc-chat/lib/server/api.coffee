@@ -36,21 +36,6 @@ _.extend AdHocChat.prototype,
 
     return
 
-  sendMessage: (message, user_id) ->
-    check message,
-      room_id: String
-      text: String
-
-    check user_id, String
-
-    @chat_messages_collection.insert
-      room_id: message.room_id
-      text: message.text
-      user_id: user_id
-      created_at: new Date
-
-    return
-
   addOnlineUser: (room_id, user_id) ->
     check room_id, String
     check user_id, String
@@ -68,5 +53,16 @@ _.extend AdHocChat.prototype,
     @chat_rooms_collection.update room_id,
       $pull:
         online_users: user_id
+
+    return
+    
+  sendMessage: (message_doc, user_id) ->
+    check user_id, String
+
+    # validate the message_doc using the chat_messages_collection schema
+    @chat_messages_collection.simpleSchema().validate(message_doc);
+
+    # message_doc is validated in the schema
+    @chat_messages_collection.insert message_doc
 
     return
