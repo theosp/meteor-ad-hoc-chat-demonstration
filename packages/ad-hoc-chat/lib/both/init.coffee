@@ -1,4 +1,8 @@
 AdHocChat = (options) ->
+  # options is an object with the following keys:
+  #   chat_rooms_collection: a Mongo.Collection instance
+  #   chat_messages_collection: a Mongo.Collection instance
+
   EventEmitter.call @
 
   @destroyed = false

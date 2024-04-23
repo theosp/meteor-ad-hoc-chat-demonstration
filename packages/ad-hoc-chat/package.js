@@ -27,6 +27,7 @@ Package.onUse(function (api) {
   api.use("fourseven:scss", both);
 
   api.use("aldeed:simple-schema", both);
+  api.use("aldeed:collection2@4.0.1", both);
   api.use("raix:eventemitter", both);
   api.use("iron:router", both);
 
