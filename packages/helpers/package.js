@@ -29,6 +29,8 @@ Package.describe({
   
     api.use("matb33:collection-hooks", both);
   
+    api.use("daniel:bootstrap", client);
+
     api.use("reactive-var", both);
     api.use("tracker", client);
   
@@ -39,6 +41,7 @@ Package.describe({
     api.addFiles("lib/both/constants.coffee", both);
 
     api.addFiles("lib/client/blaze.coffee", client);
+    api.addFiles("lib/client/bootstrap5-toast.coffee", client);
 
     api.export("Helpers", both);
   });
