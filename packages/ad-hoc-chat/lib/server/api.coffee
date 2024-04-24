@@ -1,5 +1,7 @@
 _.extend AdHocChat.prototype,
   _immediateInit: ->
+    @_removeAllOnlineUsers()
+    
     return
 
   _deferredInit: ->
@@ -17,6 +19,24 @@ _.extend AdHocChat.prototype,
 
     # Defined in collections-indexes.coffee
     @_ensureIndexesExists()
+
+    return
+
+  _removeAllOnlineUsers: ->
+    # This is used when the server restarts - to remove all lignering online users records from
+    # all the rooms.
+    #
+    # If the server is fails in the middle of the operation, the online users won't
+    # be removed from the chat rooms properly.
+    #
+    # Note, this will need to be implemented in a different way if more than one server is used.
+    #
+    # This implementation assumes a single server.
+    @chat_rooms_collection.update {},
+      $unset:
+        online_users: ""
+    ,
+      multi: true
 
     return
 
