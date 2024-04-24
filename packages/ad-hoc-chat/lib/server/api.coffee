@@ -27,10 +27,10 @@ _.extend AdHocChat.prototype,
 
     check user_id, String
 
-    if options.title.length > AdHocChat.max_room_title_length
+    if options.title.length is 0 or options.title.length > AdHocChat.max_room_title_length
       throw new Meteor.Error "invalid-title", "Title must be at most #{AdHocChat.max_room_title_length} characters long"
 
-    @chat_rooms_collection.update options.room_id,
+    @chat_rooms_collection.upsert options.room_id,
       $set:
         title: options.title
 

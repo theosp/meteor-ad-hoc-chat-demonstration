@@ -8,7 +8,15 @@ Template.chat_room.onCreated ->
         e.target.innerHTML = "" # A workaround for an issue with blaze and contenteditable
                                 # https://github.com/meteor/meteor/issues/1964
 
-        APP.ad_hoc_chat.setChatRoomTitle {title}
+        APP.ad_hoc_chat.setChatRoomTitle {title}, (err) ->
+            if not err?
+                return
+
+            Helpers.toastError
+                title: "Error"
+                content: err.reason
+
+            return
 
         return
 

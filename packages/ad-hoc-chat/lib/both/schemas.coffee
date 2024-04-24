@@ -43,17 +43,12 @@ _.extend AdHocChat.prototype,
         optional: true
         max: AdHocChat.max_room_title_length
 
-        # Don't allow unsetting a title
-        autoValue: (doc) ->
-          if doc.title is undefined
-            return this.unset()
-          return
-
       online_users:
         optional: true
         type: Array
 
       "online_users.$":
+        optional: true
         type: String
 
     @chat_rooms_collection.attachSchema schema

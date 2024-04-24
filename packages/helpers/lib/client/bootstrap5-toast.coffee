@@ -1,6 +1,7 @@
 default_toast_options =
     title: "Title"
     content: "Content"
+    header_classes: ""
     delay: 10000
 
 _.extend Helpers,
@@ -14,7 +15,7 @@ _.extend Helpers,
         toast_html = """
             <div class="toast-container position-fixed bottom-0 end-0 p-3">
                 <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="#{options.delay}">
-                    <div class="toast-header">
+                    <div class="toast-header #{options.header_classes}">
                         <strong class="me-auto">#{options.title}</strong>
                         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                     </div>
@@ -39,5 +40,13 @@ _.extend Helpers,
             $toast_container.remove()
 
             return
+
+        return
+
+    toastError: (options) ->
+        options = _.extend {}, options
+        options.header_classes = "bg-danger text-white"
+
+        Helpers.toast options
 
         return
