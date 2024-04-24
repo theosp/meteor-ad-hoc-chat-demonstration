@@ -27,6 +27,13 @@ Template.chat_room.helpers
         room = APP.ad_hoc_chat.getCurrentRoom()
         return room.title
 
+    onlineParticipants: ->
+        room = APP.ad_hoc_chat.getCurrentRoom()
+
+        online_users = APP.ad_hoc_chat.getOnlineUsersInRoomDoc(room)
+
+        return Meteor.users.find({_id: {$in: online_users}}).fetch()
+
 Template.chat_room.events
     "focusout .room-title": (e, tpl) ->
         tpl.updateTitle e

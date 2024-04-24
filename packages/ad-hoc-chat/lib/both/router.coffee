@@ -19,6 +19,13 @@ _.extend AdHocChat.prototype,
       if Meteor.userId()?
         self.subscribeChatRoom @params.id
 
+        Tracker.autorun (c) ->
+          if (room_doc = self.getCurrentRoom())?
+            self.subscribePublicBasicUserInfo(self.getOnlineUsersInRoomDoc(room_doc))
+
+          return
+          
+
       return
     ,
       name: "chat_room"

@@ -35,8 +35,9 @@
 
         <div class="online-participants p-2">
             <strong>Online now:</strong>
-            <span class="badge bg-primary">Daniel C</span>
-            <span class="badge bg-primary">Eli C</span>
+            {{#each onlineParticipants}}
+                <span class="badge bg-primary">{{profile.nickname}}</span>
+            {{/each}}
         </div>
     </div>
 </template>

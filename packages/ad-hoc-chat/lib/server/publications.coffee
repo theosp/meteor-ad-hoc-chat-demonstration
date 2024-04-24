@@ -5,10 +5,10 @@ _.extend AdHocChat.prototype,
     Meteor.publish "chat_room", (chat_room_id) ->
       check chat_room_id, String
 
-      self.addOnlineUser chat_room_id, this.userId
+      self.addOnlineUser @, chat_room_id
 
       @onStop =>
-        self.removeOnlineUser chat_room_id, this.userId
+        self.removeOnlineUser @, chat_room_id
 
         return
 
@@ -17,4 +17,9 @@ _.extend AdHocChat.prototype,
         self.chat_messages_collection.find({room_id: chat_room_id})
       ]
 
+    Meteor.publish "public_basic_user_info", (users) ->
+      check users, [String]
+
+      return Meteor.users.find({_id: {$in: users}}, {fields: {"_id": 1, "profile.nickname": 1}})
+    
     return
