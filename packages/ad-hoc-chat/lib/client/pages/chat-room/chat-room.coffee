@@ -22,6 +22,9 @@ Template.chat_room.onCreated ->
 
     ongoing_attempt = false
     @attemptSend = ->
+        if ongoing_attempt
+            return
+
         message = $(".message-input").val().trim()
 
         if message.length is 0
