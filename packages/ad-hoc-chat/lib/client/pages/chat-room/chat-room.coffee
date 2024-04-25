@@ -130,7 +130,7 @@ Template.chat_room.events
 Template.message_stamp.helpers
     nickname: ->
         user = Meteor.users.findOne(@user_id)
-        return user.profile.nickname
+        return user?.profile?.nickname
 
     hour: ->
         @timestamp.toLocaleTimeString([], {hour: "2-digit", minute: "2-digit"})
