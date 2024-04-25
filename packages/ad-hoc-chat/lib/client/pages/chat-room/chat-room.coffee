@@ -70,6 +70,9 @@ Template.chat_room.onCreated ->
 Template.chat_room.onRendered ->
     @scrollToBottom()
 
+    # Focus on the message input
+    $(".message-input").focus()
+
     return
 
 Template.chat_room.helpers
