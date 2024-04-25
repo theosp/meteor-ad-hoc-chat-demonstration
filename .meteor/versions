@@ -59,6 +59,7 @@ logging@1.3.3
 matb33:collection-hooks@1.1.4
 meteor@1.11.5
 meteor-base@1.5.1
+meteor-platform@0.0.1
 meteorspark:app@0.4.0
 meteorspark:util@0.2.0
 minifier-css@1.6.4
@@ -77,6 +78,7 @@ mongo-id@1.0.8
 npm-mongo@4.17.2
 observe-sequence@1.0.22
 ordered-dict@1.1.0
+panter:qrcode@0.0.1
 promise@0.12.2
 raix:eventemitter@1.0.0
 random@1.2.1
