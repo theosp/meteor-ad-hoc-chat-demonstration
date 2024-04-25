@@ -65,7 +65,7 @@ Template.chat_room.helpers
         return this.user_id == Meteor.userId()
 
     currentUrl: ->
-        return window.location.href
+        return Router.current().location.get().href
 
 Template.chat_room.events
     "focusout .room-title": (e, tpl) ->
