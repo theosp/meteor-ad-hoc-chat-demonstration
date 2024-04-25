@@ -30,6 +30,7 @@ Package.onUse(function (api) {
   api.use("aldeed:collection2@4.0.1", both);
   api.use("raix:eventemitter", both);
   api.use("iron:router", both);
+  api.use("panter:qrcode", both);
 
   api.use("matb33:collection-hooks", both);
 

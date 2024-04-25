@@ -20,13 +20,16 @@ Template.chat_room.onCreated ->
 
         return
 
+    ongoing_attempt = false
     @attemptSend = ->
         message = $(".message-input").val().trim()
 
         if message.length is 0
             return
 
+        ongoing_attempt = true
         APP.ad_hoc_chat.sendMessage {message}, (err) ->
+            ongoing_attempt = false
             if not err?
                 $(".message-input").val("")
                 return
@@ -60,6 +63,9 @@ Template.chat_room.helpers
 
     isMyMessage: ->
         return this.user_id == Meteor.userId()
+
+    currentUrl: ->
+        return window.location.href
 
 Template.chat_room.events
     "focusout .room-title": (e, tpl) ->
