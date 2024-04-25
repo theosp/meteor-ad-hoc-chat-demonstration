@@ -9,3 +9,5 @@ _.extend AdHocChat,
   max_nickname_length: 50
 
   max_room_title_length: 50
+
+  max_message_length: 10000

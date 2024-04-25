@@ -65,9 +65,18 @@ _.extend AdHocChat.prototype,
 
       message:
         type: String
+        max: AdHocChat.max_message_length
 
       timestamp:
         type: Date
+
+        autoValue: ->
+          if this.isInsert
+            return new Date()
+          else if this.isUpsert
+            return { $setOnInsert: new Date() }
+          else
+            this.unset()
 
     @chat_messages_collection.attachSchema schema
 
