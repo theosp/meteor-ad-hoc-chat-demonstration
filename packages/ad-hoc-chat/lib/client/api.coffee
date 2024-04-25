@@ -51,3 +51,5 @@ _.extend AdHocChat.prototype,
   getCurrentRoom: ->
     return @chat_rooms_collection.findOne @getCurrentRoomId() 
   
+  getRoomMessagesCursor: (room_id) ->
+    return @chat_messages_collection.find({room_id: room_id}, {sort: {timestamp: 1}})

@@ -8,4 +8,9 @@ _.extend AdHocChat.prototype,
 
         return
 
+      sendMessage: (message_doc) ->
+        self.sendMessage message_doc, @userId
+
+        return
+
     return

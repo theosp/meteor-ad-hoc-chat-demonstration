@@ -94,8 +94,9 @@ _.extend AdHocChat.prototype,
   sendMessage: (message_doc, user_id) ->
     check user_id, String
 
-    # validate the message_doc using the chat_messages_collection schema
-    @chat_messages_collection.simpleSchema().validate(message_doc);
+    message_doc.user_id = user_id
+
+    @chat_messages_collection.simpleSchema().clean(message_doc)
 
     # message_doc is validated in the schema
     @chat_messages_collection.insert message_doc

@@ -3,34 +3,18 @@
     <div class="room-title card-title d-flex flex-row justify-content-center fw-bold" contenteditable>{{roomTitle}}</div>
 
     <div class="messages">
-        <div class="d-flex flex-row justify-content-start">
-            <div>
-                <p class="message message-from-other small p-2 ms-3 mb-1 rounded-3">
-                    Lorem ipsum
-                    dolor
-                    sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et
-                    dolore
-                    magna aliqua.</p>
-                <p class="small ms-3 mb-3 rounded-3 text-muted float-end">Daniel Chcouri | 12:00 PM | Aug 13</p>
-            </div>
-        </div>
-
-        <div class="d-flex flex-row justify-content-end">
-            <div>
-                <p class="message small p-2 me-3 mb-1 text-white rounded-3 bg-primary">Ut enim
-                    ad minim veniam,
-                    quis
-                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat.</p>
-                <p class="small me-3 mb-3 rounded-3 text-muted">Daniel Chcouri | 12:00 PM | Aug 13</p>
-            </div>
-        </div>
+        {{#each messages}}
+            {{#if isMyMessage}}
+                {{> my_message}}
+            {{else}}
+                {{> others_message}}
+            {{/if}}
+        {{/each}}
     </div>
     <div class="inputs-and-state">
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Type a message...">
-            <button class="btn btn-primary" type="button">Send</button>
+            <input type="text" class="message-input form-control" placeholder="Type a message...">
+            <button class="send btn btn-primary" type="button">Send</button>
         </div>
 
         <div class="online-participants p-2">
@@ -40,4 +24,26 @@
             {{/each}}
         </div>
     </div>
+</template>
+
+<template name="others_message">
+    <div class="d-flex flex-row justify-content-start">
+        <div>
+            <p class="message message-from-other small p-2 ms-3 mb-1 rounded-3">{{message}}</p>
+            <p class="small ms-3 mb-3 rounded-3 text-muted float-end">{{> message_stamp}}</p>
+        </div>
+    </div>
+</template>
+
+<template name="my_message">
+    <div class="d-flex flex-row justify-content-end">
+        <div>
+            <p class="message small p-2 me-3 mb-1 text-white rounded-3 bg-primary">{{message}}</p>
+            <p class="small me-3 mb-3 rounded-3 text-muted">{{> message_stamp}}</p>
+        </div>
+    </div>
+</template>
+
+<template name="message_stamp">
+    {{nickname}} | {{hour}} | {{day}}
 </template>
