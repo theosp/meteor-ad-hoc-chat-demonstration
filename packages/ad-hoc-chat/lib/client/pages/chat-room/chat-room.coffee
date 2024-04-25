@@ -42,6 +42,31 @@ Template.chat_room.onCreated ->
 
         return
 
+    @scrollToBottom = ->
+        messages_el = $(".messages").get(0)
+        if messages_el?
+            messages_el.scrollTop = messages_el.scrollHeight
+
+        return
+
+    @autorun =>
+        # Track new messages, to scroll to the bottom the viewport once a new message is added
+        room_id = APP.ad_hoc_chat.getCurrentRoomId()
+
+        APP.ad_hoc_chat.getRoomMessagesCursor(room_id).fetch()
+
+        # Wait for blaze to actually render the new message before scrolling to the bottom
+        setTimeout =>
+            @scrollToBottom()
+        , 0
+
+        return
+
+    return
+
+Template.chat_room.onRendered ->
+    @scrollToBottom()
+
     return
 
 Template.chat_room.helpers
