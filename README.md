@@ -57,7 +57,7 @@ A demo is available at: [https://ad-hoc-chat.meteorapp.com/](https://ad-hoc-chat
 
 You can easily integrate this chat application into existing web applications using an iframe. Here's how:
 
-1. Deploy your Meteor Ad-Hoc Chat application.
+1. Deploy your Meteor Ad-Hoc Chat application. The application can run on any server accessible to your target audience, whether it's internet-facing or confined to an intranet.
 
 2. In your existing application, add an iframe with the source URL pointing to your deployed chat application:
 
